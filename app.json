@@ -1,32 +1,36 @@
 {
   "expo": {
-    "name": "yo-momma",
-    "slug": "yo-momma",
-    "version": "1.0.0",
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#2A3149",
+        "foregroundImage": "./app/assets/adaptive-icon.png"
+      },
+      "package": "com.rendertom.yomama",
+      "versionCode": 1
+    },
+    "assetBundlePatterns": ["**/*"],
+    "description": "A collection of jokes",
+    "githubUrl": "https://github.com/rendertom/yo-mama",
+    "icon": "./app/assets/icon.png",
+    "ios": {
+      "buildNumber": "1.0.0",
+      "bundleIdentifier": "com.rendertom.yomama",
+      "supportsTablet": true
+    },
+    "name": "yo-mama",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "slug": "yo-mama",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2A3149",
+      "image": "./app/assets/splash.png",
+      "resizeMode": "contain"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
+    "version": "1.0.0",
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./app/assets/favicon.png"
     }
   }
 }
