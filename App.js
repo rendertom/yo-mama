@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import AppLoading from "expo-app-loading";
+
 import { useFonts } from "expo-font";
+import * as SplashScreen from 'expo-splash-screen';
 
 import firebase from "firebase";
 import firebaseClient from "./app/api/firebaseClient";
@@ -12,6 +13,8 @@ import UserContext from "./app/context/UserContext";
 
 import AppNavigator from "./app/navigation/AppNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
+
+SplashScreen.preventAutoHideAsync();
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -64,18 +67,17 @@ export default function App() {
     return jokes;
   };
 
-  if (!fontsLoaded || isLoadingJokes) {
-    return <AppLoading />;
+  if (fontsLoaded && !isLoadingJokes) {
+    SplashScreen.hideAsync();
+    return (
+      <UserContext.Provider value={{ user, setUser }}>
+        <JokesContext.Provider value={{ jokes, setJokes }}>
+          <NavigationContainer theme={navigationTheme}>
+            {/* <RootStackScreen /> */}
+            <AppNavigator />
+          </NavigationContainer>
+        </JokesContext.Provider>
+      </UserContext.Provider>
+    );
   }
-
-  return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <JokesContext.Provider value={{ jokes, setJokes }}>
-        <NavigationContainer theme={navigationTheme}>
-          {/* <RootStackScreen /> */}
-          <AppNavigator />
-        </NavigationContainer>
-      </JokesContext.Provider>
-    </UserContext.Provider>
-  );
 }
