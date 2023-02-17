@@ -87,7 +87,12 @@ const ExploreScreen = () => {
   return (
     <Screen>
       <ActivityIndicator visible={isLoading} />
-      <Tabs onPress={setCategory} />
+      <Tabs onPress={(category)=> {
+        setCategory(category)
+        category
+          ? setJoke(getJokeFromCategory(category))
+          : setJoke(getJokeFromCategory(getCategoryRandom()))
+      }} />
 
       {joke && (
         <View style={styles.jokeContainer}>
