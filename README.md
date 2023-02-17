@@ -23,9 +23,6 @@ For iOS users - currently, there's no way to run the app on a physical phone. Th
 Download the repository and do the following:
 
 ```bash
-# install expo-cli globally
-npm install --global expo-cli
-
 # install Watchman (macOS only)
 brew update
 brew install watchman
@@ -34,7 +31,7 @@ brew install watchman
 cd path/to/yo-mama
 
 # start expo server
-expo start
+npx expo start
 ```
 
 - To run the iOS simulator, you'll need [Xcode](https://developer.apple.com/xcode/).
